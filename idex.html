@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- 引入 Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- 引入 Font Awesome 图标库 -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <title>周女士简历</title>
+    <style>
+        /* 平滑滚动效果 */
+        html {
+            scroll-behavior: smooth;
+        }
+
+        /* 淡入动画 */
+        .fade-in {
+            opacity: 0;
+            animation: fadeIn 0.5s ease-in-out forwards;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+
+            to {
+                opacity: 1;
+            }
+        }
+    </style>
+</head>
+
+<body class="bg-white dark:bg-gray-900 text-gray-800 dark:text-gray-200 font-sans">
+    <!-- 深色/浅色模式切换按钮 -->
+    <button id="theme-toggle"
+        class="fixed top-4 right-4 z-10 bg-gray-200 dark:bg-gray-700 text-gray-600 dark:text-gray-300 p-2 rounded-full focus:outline-none hover:scale-110 transition-transform">
+        <i id="theme-icon" class="fa-solid fa-moon"></i>
+    </button>
+    <div class="container mx-auto p-8">
+        <h1 class="text-4xl font-bold text-center mb-8 fade-in">周女士简历</h1>
+        <h2 class="text-2xl font-bold mb-4 fade-in">工作经验</h2>
+        <!-- 工作经验 1 -->
+        <div class="bg-white dark:bg-gray-800 p-6 rounded-lg shadow-md mb-8 fade-in hover:shadow-xl hover:border border-gray-300 dark:border-gray-700 transition-shadow transition-border">
+            <div class="flex justify-between mb-2">
+                <h3 class="text-xl font-bold">四川今日头条科技有限公司</h3>
+                <p class="text-gray-600 dark:text-gray-400">2018.08 - 2020.03</p>
+            </div>
+            <p class="text-gray-600 dark:text-gray-400 mb-4">网络推广顾问</p>
+            <ul class="list-disc pl-6">
+                <li>负责从各大资源网站搜集新客户的资料，并整理到 Excel 中进行批量导入。</li>
+                <li>通过电话以及微信与客户进行有效沟通，了解客户现有痛点并挖掘潜在需求，定制对应的营销推广方案。</li>
+                <li>解决客户异议，结合当前的沟通情况，与产品经理协同进行客户的跟进和回访。</li>
+                <li>根据公司战略拓展业务，邀约客户参加营销峰会，负责峰会活动的前期宣传、邀请函发放以及回执函登记，提前跟客户沟通交通出行情况，接待客户并引领到场签到。</li>
+                <li>复盘当日数据，从客观数据、客户质量提升维度，对未成交客户进行分析，明确后期跟进流程，协同多方资源进行开发。</li>
+                <li>通过 boss 直聘寻访候选人，并收集简历进行内推（在职期间内推入职 16 人）。</li>
+            </ul>
+        </div>
+        <!-- 工作经验 2 -->
+        <div class="bg-white dark:bg-gray-800 p-6 rounded-lg shadow-md mb-8 fade-in hover:shadow-xl hover:border border-gray-300 dark:border-gray-700 transition-shadow transition-border">
+            <div class="flex justify-between mb-2">
+                <h3 class="text-xl font-bold">成都博大恒瑞企业管理咨询有限公司</h3>
+                <p class="text-gray-600 dark:text-gray-400">2020.03 - 2020.10</p>
+            </div>
+            <p class="text-gray-600 dark:text-gray-400 mb-4">总经理助理</p>
+            <ul class="list-disc pl-6">
+                <li>人事：负责员工关系管理，候选人简历筛选、公司人员招聘、入职、离职，人员定期考勤、员工 KPI 完成情况等。</li>
+                <li>培训运营：课程物资的采购、发放及公司培训项目运营管理（打印学员手册及准备培训道具等）、培训讲师行程安排（酒店、机票等）。</li>
+                <li>行政：负责办公室各部门办公后勤保障的工作，办公易耗品采购、对接外部供应商，发票、印章、公司资质版权、合同管理，保障日常运转。</li>
+                <li>推广：公司中英文网站、公众号、小鹅通线上课堂内容更新、运营与维护。</li>
+            </ul>
+        </div>
+    </div>
+    <!-- 底部信息 -->
+    <footer class="bg-gray-100 dark:bg-gray-800 text-gray-600 dark:text-gray-400 text-center p-4">
+        <p>作者姓名: 周女士</p>
+        <p>社交媒体链接: <a href="https://twitter.com" class="text-blue-500 hover:underline">Twitter/X</a></p>
+        <p>版权所有 &copy; 2025</p>
+    </footer>
+    <script>
+        // 深色/浅色模式切换逻辑
+        const themeToggle = document.getElementById('theme-toggle');
+        const themeIcon = document.getElementById('theme-icon');
+
+        function setTheme(theme) {
+            if (theme === 'dark') {
+                document.documentElement.classList.add('dark');
+                themeIcon.classList.remove('fa-moon');
+                themeIcon.classList.add('fa-sun');
+            } else {
+                document.documentElement.classList.remove('dark');
+                themeIcon.classList.remove('fa-sun');
+                themeIcon.classList.add('fa-moon');
+            }
+        }
+
+        // 跟随系统设置
+        const prefersDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches;
+        setTheme(prefersDarkMode ? 'dark' : 'light');
+
+        themeToggle.addEventListener('click', () => {
+            const isDarkMode = document.documentElement.classList.contains('dark');
+            setTheme(isDarkMode ? 'light' : 'dark');
+        });
+    </script>
+</body>
+
+</html>
